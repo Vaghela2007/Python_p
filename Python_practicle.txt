@@ -1,0 +1,3249 @@
+Program 1: 1St
+==================================================
+Code:
+==================================================
+y=(input("Youre name"));
+print("Hello",y)
+Output:
+==================================================
+Hello Priya
+
+
+Program 2: College Student Attendance And Grading System
+==================================================
+Code:
+==================================================
+course_info = ("MSC-301", "Advanced Python Programming", 4)
+student_db = {
+    101: {"name": "Aarav", "gpa": 8.5},
+    102: {"name": "Diya", "gpa": 9.2},
+    103: {"name": "Kabir", "gpa": 7.8}
+}
+assignment_marks = [78, 85, 92, 64]
+assignment_marks.append(88) 
+attendance_today = {101, 102, 101, 103} 
+print(f"Course: {course_info[1]} ({course_info[0]})")
+print(f"Total Students Present Today: {len(attendance_today)}")
+avg_marks = sum(assignment_marks) / len(assignment_marks)
+print(f"Class Assignment Average: {avg_marks:.2f}")
+search_roll = 102
+if search_roll in student_db:
+    print(f"Student {search_roll} Name: {student_db[search_roll]['name']}")
+Output:
+==================================================
+Course: Advanced Python Programming (MSC-301)
+Total Students Present Today: 3
+Class Assignment Average: 81.40
+Student 102 Name: Diya
+
+
+Program 3: E-Commerce Order Management System
+==================================================
+Code:
+==================================================
+product_catalog = {
+    "Laptop": 45000.00,
+    "Smartphone": 15000.00,
+    "Headphones": 2500.00,
+    "Mouse": 500.00
+}
+shopping_cart = ["Laptop", "Mouse", "Headphones"]
+shopping_cart.append("Mouse")  
+order_metadata = ("TXN-2026-0812", "2026-08-12 10:15:00")
+shipping_cities = {"Ahmedabad", "Mumbai", "Pune", "Ahmedabad"} 
+print(f"--- Order Invoice for Transaction: {order_metadata[0]} ---")
+total_bill = 0
+for item in shopping_cart:
+    if item in product_catalog:
+        price = product_catalog[item]
+        total_bill += price
+        print(f"- {item}: ₹{price}")
+
+print(f"Total Amount to Pay: ₹{total_bill}")
+print(f"Unique Shipping Hubs Covered: {shipping_cities}")
+Output:
+==================================================
+--- Order Invoice for Transaction: TXN-2026-0812 ---
+- Laptop: ₹45000.0
+- Mouse: ₹500.0
+- Headphones: ₹2500.0
+- Mouse: ₹500.0
+Total Amount to Pay: ₹48500.0
+Unique Shipping Hubs Covered: {'Ahmedabad', 'Pune', 'Mumbai'}
+
+
+Program 4: 1St
+==================================================
+Code:
+==================================================
+try:
+    a = 5
+    b = 2
+    c = 0
+    d = a + b
+    e = a / c
+    ans = a + b + c
+    f = int("ebc")
+    print(a)
+    print(b)
+    print(c)
+
+except ZeroDivisionError:
+    print("Zero error")
+
+except ValueError:
+    print("Value error")
+
+print("Hello world")
+print(d)
+Output:
+==================================================
+Zero error
+Hello world
+7
+
+
+Program 5: Age User
+==================================================
+Code:
+==================================================
+class AgeError(Exception):
+    pass
+
+
+try:
+    age = int(input("Enter your age: "))
+
+    if age < 18:
+        raise AgeError("Age must be 18 or above")
+
+    print("You are eligible.")
+
+except AgeError as e:
+    print("Error:", e)
+Output:
+==================================================
+You are eligible.
+
+
+Program 6: Quntityerror
+==================================================
+Code:
+==================================================
+class PriceError(Exception):
+    pass
+class QuantityError(Exception):
+    pass
+try:
+    price = int(input("Enter product price: "))
+    quantity = int(input("Enter product quantity: "))
+    if not(price < 100 and price<1000):
+        raise PriceError("Price must be 1 digit")
+    elif quantity <= 0:
+        raise QuantityError("Quantity must be greater than 0")
+    else:
+        print("Product price and quantity are valid.")
+        print("Price:", price)
+        print("Quantity:", quantity)
+except PriceError as e:
+    print("Price Error:", e)
+except QuantityError as e:
+    print("Quantity Error:", e)
+finally:
+    print("Success: Program execution completed.")
+Output:
+==================================================
+Product price and quantity are valid.
+Price: 50
+Quantity: 2
+Success: Program execution completed.
+
+
+Program 7: User Error
+==================================================
+Code:
+==================================================
+class ProductPriceError(Exception):
+    pass
+
+
+try:
+    price = int(input("Enter product price: "))
+
+    if not(price < 100 and price<1000):
+        raise ProductPriceError("Price error")
+
+    print("Product price is valid:", price)
+
+except ProductPriceError as e:
+    print("Error:", e)
+Output:
+==================================================
+Product price is valid: 50
+
+
+Program 8: Funtions
+==================================================
+Code:
+==================================================
+#1.create file 
+with open("data.txt", "w") as file:
+    for i in range(1, 4):
+        name = input("Enter name: ")
+        file.write(name + "\n")
+
+
+#2read file 
+with open("data.txt", "r") as file:
+    data = file.read()
+#print data
+print(data)
+
+
+#3no of character in file like lenth 
+print("No of character in file:", len(data))
+
+
+#4no of word in file
+b = data.split()
+print("No of word in file:", len(b))
+c = data.splitlines()
+print("No of line in file:", len(c))
+
+
+#5No of vowels 
+vow = "aeiouAEIOU"
+count = 0
+for i in data:
+    if i in vow:
+        count=count+1
+print("No of vowels in file:", count)
+
+
+#6.one file to another file to copy
+with open("data.txt", "r") as file:
+    data = file.read()
+with open("data1.txt", "w") as file:
+    data.upper()
+    file.write(data)
+
+#7.print second file data
+with open("data1.txt", "r") as file:
+    data = file.read()
+print(data)
+
+#8.readlines
+with open("data1.txt", "r") as file:
+    data = file.readline()
+print(data)
+while data:
+    print(data.strip())
+    data=file.readlines
+    print(data)
+
+#9.read all lines
+with open ("data.txt","r") as file:
+    data=file.readlines()
+    print(data)
+for index,line in enumerate(11,start=1):
+    print(f"Line{index}:{line.strip()}")
+
+#10.count total uppercase and lower case in file
+upper = 0
+lower = 0
+for i in data:
+    if i.isupper():
+        uppere =upper + 1
+    elif i.islower():
+        lower = lower + 1
+print("No of uppercase :", upper)
+print("No of lowercase:", lower)
+
+#11.count character specialsymbol and digit and space in file
+special = 0
+digits = 0
+spaces = 0
+for i in data:
+    if i.isdigit():
+        digits = digits + 1
+    elif i.isspace():
+        spaces = spaces + 1
+    else:
+        special = special + 1
+print("No of digits:", digits)
+print("No of spaces:", spaces)
+print("No of special symbols:", special)
+
+#12.search word in file
+word = input("Enter word to search: ")
+if word in data.split():
+    print("Word found in file.")
+else:
+    print("Word not found in file.")
+#13.replace specific word in file
+old = input("Enter word to replace: ")
+new = input("Enter new word:")
+with open("data.txt", "r") as file:
+    data = file.read()
+data = data.replace(old,new)
+with open("data.txt", "w") as file:
+    file.write(data)
+print("Word replaced successfully.")
+Output:
+==================================================
+Priya
+hello
+hello
+
+No of character in file: 18
+No of word in file: 3
+No of line in file: 3
+No of vowels in file: 6
+Priya
+hello
+hello
+
+Priya
+
+Priya
+<built-in method readlines of _io.TextIOWrapper object at 0x7fc7572f3ae0>
+Error: 'builtin_function_or_method' object has no attribute 'strip'
+
+
+Program 9: Login
+==================================================
+Code:
+==================================================
+user_id = input("Enter User ID: ").strip()
+user_pass = input("Enter Password: ").strip()
+
+found = False
+
+
+    
+file = open("users.txt", "r")
+    
+    
+for line in file:
+        data = line.strip().split(",")
+        stored_user = data[0]
+        stored_pass = data[1]
+        
+        
+        if user_id == stored_user and user_pass == stored_pass:
+            found = True
+            break
+            
+file.close()
+
+if found:
+        print("Login Successful!")
+else:
+        print("Invalid User ID or Password.")
+Output:
+==================================================
+Error: [Errno 2] No such file or directory: 'users.txt'
+
+
+Program 10: Signup
+==================================================
+Code:
+==================================================
+# signup.py - Sign Up Script
+
+print("=== SIGN UP ===")
+username = input("Enter User ID: ").strip()
+password = input("Enter Password: ").strip()
+
+# Open file in append mode ('a') so existing data isn't deleted
+file = open("users.txt", "a")
+
+# Write data separated by comma with a newline at the end
+file.write(username + "," + password + "\n")
+
+# Close the file
+file.close()
+
+print("Sign up successful! Data saved to users.txt")
+Output:
+==================================================
+=== SIGN UP ===
+Sign up successful! Data saved to users.txt
+
+
+Program 11: Evennumber
+==================================================
+Code:
+==================================================
+#print first 10 even number
+i=2
+while i<=20:
+    print(i)
+    i=i+2
+print("end")
+Output:
+==================================================
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+end
+
+
+Program 12: Factoria
+==================================================
+Code:
+==================================================
+i=1
+fact=1
+while i<=5:
+        fact=fact*i
+        i=i+1
+print(fact)
+Output:
+==================================================
+120
+
+
+Program 13: Printfirst10
+==================================================
+Code:
+==================================================
+#print first 10
+i=1
+while i<=10:
+    print(i)
+    i=i+1
+Output:
+==================================================
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+Program 14: Userfactoria
+==================================================
+Code:
+==================================================
+i=1
+fact=1
+n=int(input("Enter number: "))
+while i<=n:
+        fact=fact*i
+        i=i+1
+print(fact)
+Output:
+==================================================
+2
+
+
+Program 15: Vitals
+==================================================
+Code:
+==================================================
+# 1. Get patient vitals from user
+pulse = int(input("Enter Pulse Rate (bpm): "))
+oxygen = int(input("Enter Oxygen Level (SpO2 %): "))
+
+
+# 2. Check for extreme/life-threatening values first (Immediate)
+if oxygen < 85 or pulse < 40 or pulse > 140:
+    print(" PRIORITY 1: ")
+    print("Action: Move to trauma bay instantly.")
+
+# 3. Check for severe values (High Priority)
+elif (85 <= oxygen <= 91) or (40 <= pulse <= 49) or (121 <= pulse <= 140):
+    print("PRIORITY 2: ")
+    print("Action: Requires rapid medical evaluation.")
+
+# 4. Check for moderate deviations (Medium Priority)
+elif (92 <= oxygen <= 94) or (50 <= pulse <= 59) or (101 <= pulse <= 120):
+    print("PRIORITY 3: ")
+    print("Action: Needs evaluation within 30-60 minutes.")
+
+# 5. If everything else is normal (Low Priority)
+else:
+    print("PRIORITY 4:")
+    print("Action: Patient is stable. Standard waiting time applies.")
+Output:
+==================================================
+PRIORITY 1: 
+Action: Move to trauma bay instantly.
+
+
+Program 16: 1 12 123 1234
+==================================================
+Code:
+==================================================
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+Output:
+==================================================
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5
+
+
+Program 17: 1 22 333 4444
+==================================================
+Code:
+==================================================
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(i,end=" ")
+    print()
+Output:
+==================================================
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5
+
+
+Program 18: 15To1 Rev
+==================================================
+Code:
+==================================================
+for i in range(15,0,-1):
+    print(i)
+Output:
+==================================================
+15
+14
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+
+Program 19: A Bb Ccc Dddd
+==================================================
+Code:
+==================================================
+#A 
+#B B 
+#C C C 
+#D D D D 
+#E E E E E 
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+i),end=" ")
+    print()
+Output:
+==================================================
+A 
+B B 
+C C C 
+D D D D 
+E E E E E
+
+
+Program 20: Electricity Bill Calculator
+==================================================
+Code:
+==================================================
+unit =int(input('Enter no of Units '))
+if (unit<=100):
+    bill= unit *2
+elif (unit<=200):
+    bill = (100*2) + (unit-100) *3
+elif (unit<=300):
+    bill = (100*2)+ (100*3) + (unit-100) *5
+else :
+    bill = (100*2)+ (100*3) +(100*5) + (unit-100) *7
+
+print('Total amount of bill is =₹',bill)
+Output:
+==================================================
+Total amount of bill is =₹ 2
+
+
+Program 21: Loan Eligibility Checker
+==================================================
+Code:
+==================================================
+Income=int(input("Enter Income "))
+if Income>=100000:
+    print('Premium Loan')   
+elif Income>=50000:
+    print('Standard Loan')
+elif Income>=25000:
+    print('Basic Loan')
+else :
+    print('Not Eligible')
+Output:
+==================================================
+Not Eligible
+
+
+Program 22: Max
+==================================================
+Code:
+==================================================
+a,b,c,d=int(input('Enter 4 Number'))
+if a>b and a>c and a>d :
+    print('Max number is: ',a)
+elif b>a and b>c and b>d :
+    print('Max number is: ',b)
+elif c>a and c>b and c>d :
+    print('Max number is: ',c)
+else :
+    print('Max number is: ',d)
+Output:
+==================================================
+Error: cannot unpack non-iterable int object
+
+
+Program 23: Movie Ticket Price
+==================================================
+Code:
+==================================================
+Age =int(input('Enter your Age '))
+if (Age<5):
+    print('Free')
+elif (Age>=5 and Age<=12):
+     print('₹100')
+elif (Age>=13 and Age<=59):
+     print('₹200')
+else :
+     print('₹150')
+Output:
+==================================================
+₹200
+
+
+Program 24: Prime No
+==================================================
+Code:
+==================================================
+n=int(input('Enter No :'))
+cou=0
+for i in range(1,n+1):
+    if n%i==0:
+        cou += 1
+if cou ==2:
+    print("Prime num")
+else:
+    print("Not Prime num")
+Output:
+==================================================
+Not Prime num
+
+
+Program 25: Student Grade Calculator
+==================================================
+Code:
+==================================================
+Mark =int(input('Enter Marks '))
+if (Mark>=90):
+    print('Grade A')
+elif (Mark>=80):
+    print('Grade B')
+elif (Mark>=70):
+    print('Grade C')
+elif (Mark>=60):
+    print('Grade D')
+else :
+    print('Grade F')
+Output:
+==================================================
+Grade B
+
+
+Program 26: Traffic Fine Calculator
+==================================================
+Code:
+==================================================
+speed=int(input("Enter speed "))
+if speed<=60:
+    fine='No Fine'   
+elif speed>60 and speed<=80:
+    fine=500
+elif speed>80 and speed<=100:
+    fine=1000
+elif speed<=100:
+    fine=2000
+print("Total amount of Fine is =₹",fine)
+Output:
+==================================================
+Total amount of Fine is =₹ No Fine
+
+
+Program 27: A Ab Abc Abcd
+==================================================
+Code:
+==================================================
+#A 
+#A B 
+#A B C 
+#A B C D 
+#A B C D E #
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+j),end=" ")
+    print()
+Output:
+==================================================
+A 
+A B 
+A B C 
+A B C D 
+A B C D E
+
+
+Program 28: Even Odd
+==================================================
+Code:
+==================================================
+a=int(input('Enter number'))
+if a%2==0:
+    
+    print('Number is even')
+else :
+    print('Number is odd')
+Output:
+==================================================
+Number is even
+
+
+Program 29: F 10 Even No
+==================================================
+Code:
+==================================================
+#print first 10 even no
+i=2
+while i<=20:
+    print(i)
+    i=i+2
+print("end")
+Output:
+==================================================
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+end
+
+
+Program 30: Factorial
+==================================================
+Code:
+==================================================
+#find factorial of given no
+i=1
+ans=1
+n=int(input('Enter No '))
+while i<=n:
+    ans=ans*i
+    i=i+1
+print(ans)
+Output:
+==================================================
+1
+
+
+Program 31: Fibbonancci
+==================================================
+Code:
+==================================================
+#fibbonancci series upto n
+n=int(input("Enter no")) 
+a=0
+b=1
+c=None
+print(a,end=" ")
+print(b,end=" ")
+while 1:
+    c=a+b
+    a=b
+    b=c
+    if(c>n):
+        break
+    else:
+        print(c,end=" ")
+Output:
+==================================================
+0 1 1
+
+
+Program 32: First
+==================================================
+Code:
+==================================================
+print("Hello")
+Output:
+==================================================
+Hello
+
+
+Program 33: First 10 No
+==================================================
+Code:
+==================================================
+#print first 10 no
+i=1
+while i<=10:
+    print(i)
+    i=i+1
+Output:
+==================================================
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+Program 34: Pira1 22 333 444
+==================================================
+Code:
+==================================================
+k=5
+for i in range(1,6):
+    for j in range(1,k):
+        print(end="  ")
+    k=k-1
+    for j in range(1,i+1):
+        print(i,end=" ")
+    print()
+Output:
+==================================================
+1 
+      2 2 
+    3 3 3 
+  4 4 4 4 
+5 5 5 5 5
+
+
+Program 35: Pirahalf1 12 123
+==================================================
+Code:
+==================================================
+k=5
+for i in range(1,6):
+    for j in range(1,k):
+        print(end="  ")
+    k=k-1
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+Output:
+==================================================
+1 
+      1 2 
+    1 2 3 
+  1 2 3 4 
+1 2 3 4 5
+
+
+Program 36: Pyramid
+==================================================
+Code:
+==================================================
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+j),end="")
+        print()
+Output:
+==================================================
+A
+A
+B
+A
+B
+C
+A
+B
+C
+D
+A
+B
+C
+D
+E
+
+
+Program 37: Rev No
+==================================================
+Code:
+==================================================
+#find rev of given no
+n=int(input('Enter No '))
+rem=0
+temp = n
+while (n!=0):
+    rev= n%10
+    rev = rev *10 +rem
+    n=n/10
+print(rev)
+Output:
+==================================================
+1e-322
+
+
+Program 38: Revpira5 54 543
+==================================================
+Code:
+==================================================
+k=5
+for i in range(1,6):
+    for j in range(1,k):
+        print(end="  ")
+    k=k-1
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+Output:
+==================================================
+1 
+      1 2 
+    1 2 3 
+  1 2 3 4 
+1 2 3 4 5
+
+
+Program 39: Sum1
+==================================================
+Code:
+==================================================
+sum=0
+n=int(input('Enter the number: '))
+for i in range(1,n+1):
+    sum=sum+(i**i)
+print(sum)
+Output:
+==================================================
+5
+
+
+Program 40: Sum Of N
+==================================================
+Code:
+==================================================
+#find sum of given no
+i=1
+sum=0
+n=int(input('Enter No '))
+while i<=n:
+    n= n%10
+    sum = sum + i
+    i=i+1
+print(sum)
+Output:
+==================================================
+1
+
+
+Program 41: Summam11
+==================================================
+Code:
+==================================================
+n=int(input('Enter the number: '))
+sum=0
+flag=1
+for i in range(1,n+1,2):
+    sum=sum+(i*flag)
+    flag=flag*-1
+print(sum)
+Output:
+==================================================
+1
+
+
+Program 42: Sumof1 10
+==================================================
+Code:
+==================================================
+sum=0
+for i in range(1,11):
+    sum = sum + i
+print(sum)
+Output:
+==================================================
+55
+
+
+Program 43: 1 12 123 1234
+==================================================
+Code:
+==================================================
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+Output:
+==================================================
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5
+
+
+Program 44: 1 22 333 4444
+==================================================
+Code:
+==================================================
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(i,end=" ")
+    print()
+Output:
+==================================================
+1 
+2 2 
+3 3 3 
+4 4 4 4 
+5 5 5 5 5
+
+
+Program 45: 15To1 Rev
+==================================================
+Code:
+==================================================
+for i in range(15,0,-1):
+    print(i)
+Output:
+==================================================
+15
+14
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+
+Program 46: A Bb Ccc Dddd
+==================================================
+Code:
+==================================================
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+i),end=" ")
+    print()
+Output:
+==================================================
+A 
+B B 
+C C C 
+D D D D 
+E E E E E
+
+
+Program 47: Electricity Bill Calculator
+==================================================
+Code:
+==================================================
+unit =int(input('Enter no of Units '))
+if (unit<=100):
+    bill= unit *2
+elif (unit<=200):
+    bill = (100*2) + (unit-100) *3
+elif (unit<=300):
+    bill = (100*2)+ (100*3) + (unit-100) *5
+else :
+    bill = (100*2)+ (100*3) +(100*5) + (unit-100) *7
+
+print('Total amount of bill is =₹',bill)
+Output:
+==================================================
+Total amount of bill is =₹ 2
+
+
+Program 48: Loan Eligibility Checker
+==================================================
+Code:
+==================================================
+Income=int(input("Enter Income "))
+if Income>=100000:
+    print('Premium Loan')   
+elif Income>=50000:
+    print('Standard Loan')
+elif Income>=25000:
+    print('Basic Loan')
+else :
+    print('Not Eligible')
+Output:
+==================================================
+Not Eligible
+
+
+Program 49: Max
+==================================================
+Code:
+==================================================
+a,b,c,d=int(input('Enter 4 Number'))
+if a>b and a>c and a>d :
+    print('Max number is: ',a)
+elif b>a and b>c and b>d :
+    print('Max number is: ',b)
+elif c>a and c>b and c>d :
+    print('Max number is: ',c)
+else :
+    print('Max number is: ',d)
+Output:
+==================================================
+Error: cannot unpack non-iterable int object
+
+
+Program 50: Movie Ticket Price
+==================================================
+Code:
+==================================================
+Age =int(input('Enter your Age '))
+if (Age<5):
+    print('Free')
+elif (Age>=5 and Age<=12):
+     print('₹100')
+elif (Age>=13 and Age<=59):
+     print('₹200')
+else :
+     print('₹150')
+Output:
+==================================================
+₹200
+
+
+Program 51: Prime No
+==================================================
+Code:
+==================================================
+n=int(input('Enter No :'))
+cou=0
+for i in range(1,n+1):
+    if n%i==0:
+        cou += 1
+if cou ==2:
+    print("Prime num")
+else:
+    print("Not Prime num")
+Output:
+==================================================
+Not Prime num
+
+
+Program 52: Student Grade Calculator
+==================================================
+Code:
+==================================================
+Mark =int(input('Enter Marks '))
+if (Mark>=90):
+    print('Grade A')
+elif (Mark>=80):
+    print('Grade B')
+elif (Mark>=70):
+    print('Grade C')
+elif (Mark>=60):
+    print('Grade D')
+else :
+    print('Grade F')
+Output:
+==================================================
+Grade B
+
+
+Program 53: Traffic Fine Calculator
+==================================================
+Code:
+==================================================
+speed=int(input("Enter speed "))
+if speed<=60:
+    fine='No Fine'   
+elif speed>60 and speed<=80:
+    fine=500
+elif speed>80 and speed<=100:
+    fine=1000
+elif speed<=100:
+    fine=2000
+print("Total amount of Fine is =₹",fine)
+Output:
+==================================================
+Total amount of Fine is =₹ No Fine
+
+
+Program 54: A Ab Abc Abcd
+==================================================
+Code:
+==================================================
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+j),end=" ")
+    print()
+Output:
+==================================================
+A 
+A B 
+A B C 
+A B C D 
+A B C D E
+
+
+Program 55: Even Odd
+==================================================
+Code:
+==================================================
+a=int(input('Enter number'))
+if a%2==0:
+    
+    print('Number is even')
+else :
+    print('Number is odd')
+Output:
+==================================================
+Number is even
+
+
+Program 56: F 10 Even No
+==================================================
+Code:
+==================================================
+#print first 10 even no
+i=2
+while i<=20:
+    print(i)
+    i=i+2
+print("end")
+Output:
+==================================================
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+end
+
+
+Program 57: Factorial
+==================================================
+Code:
+==================================================
+#find factorial of given no
+i=1
+ans=1
+n=int(input('Enter No '))
+while i<=n:
+    ans=ans*i
+    i=i+1
+print(ans)
+Output:
+==================================================
+1
+
+
+Program 58: Fibbonancci
+==================================================
+Code:
+==================================================
+#fibbonancci series upto n
+n=int(input("Enter no")) 
+a=0
+b=1
+c=None
+print(a,end=" ")
+print(b,end=" ")
+while 1:
+    c=a+b
+    a=b
+    b=c
+    if(c>n):
+        break
+    else:
+        print(c,end=" ")
+Output:
+==================================================
+0 1 1
+
+
+Program 59: First
+==================================================
+Code:
+==================================================
+print("Hello")
+Output:
+==================================================
+Hello
+
+
+Program 60: First 10 No
+==================================================
+Code:
+==================================================
+#print first 10 no
+i=1
+while i<=10:
+    print(i)
+    i=i+1
+Output:
+==================================================
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+Program 61: Rev No
+==================================================
+Code:
+==================================================
+#find rev of given no
+n=int(input('Enter No '))
+rem=0
+temp = n
+while (n!=0):
+    rev= n%10
+    rev = rev *10 +rem
+    n=n/10
+print(rev)
+Output:
+==================================================
+1e-322
+
+
+Program 62: Sum Of N
+==================================================
+Code:
+==================================================
+#find sum of given no
+i=1
+sum=0
+n=int(input('Enter No '))
+while i<=n:
+    n= n%10
+    sum = sum + i
+    i=i+1
+print(sum)
+Output:
+==================================================
+1
+
+
+Program 63: Sumof1 10
+==================================================
+Code:
+==================================================
+sum=0
+for i in range(1,11):
+    sum = sum + i
+print(sum)
+Output:
+==================================================
+55
+
+
+Program 64: Addition Of Matrix
+==================================================
+Code:
+==================================================
+# Input data in Matrix A
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+print("Enter elements of Matrix A:")
+A = []
+for i in range(rows):
+    row = []
+    for j in range(cols):
+        row.append(int(input("Enter Value: ")))
+    A.append(row)
+
+# Input data in Matrix B
+print("Enter elements of Matrix B:")
+B = []
+for i in range(rows):
+    row = []
+    for j in range(cols):
+        row.append(int(input("Enter Value: ")))
+    B.append(row)
+
+# Addition of Matrix A and B
+C = []
+for i in range(rows):
+    row = []
+    for j in range(cols):
+        row.append(A[i][j] + B[i][j])
+    C.append(row)
+    
+print("\nAddition of Matrix A and Matrix B:")
+for i in C:
+    for j in i:
+        print(j, end=" ")
+    print()
+Output:
+==================================================
+Enter elements of Matrix A:
+(Program needs additional input.)
+
+
+Program 65: Exameg
+==================================================
+Code:
+==================================================
+l1=[10,20,22,40,5,60,70,8,90,78]
+div3= [n for n in l1 if n % 3 == 0]
+di3 = [n for n in l1 if n % 3 != 0]
+
+no10=[n for n in l1 if n >10]
+no20=[n for n in l1 if n >20]
+no30=[n for n in l1 if n >30]
+
+print(min(l1))
+print(max(l1))
+print(sum(l1))
+
+
+def operation(a,b):
+    c=a+b
+    d=a-b
+    e=a*b
+    f=a/b
+    return c,d,e,f
+x,y,z,a=operation(10,20)
+print(x,y,z,a)
+Output:
+==================================================
+5
+90
+403
+30 -10 200 0.5
+
+
+Program 66: Hello
+==================================================
+Code:
+==================================================
+print('Hello')
+Output:
+==================================================
+Hello
+
+
+Program 67: Even Or Odd
+==================================================
+Code:
+==================================================
+num = int(input("Enter a number: "))
+
+
+if num % 2 == 0:
+    print("number is Even")
+else:
+    print("number is Odd")
+Output:
+==================================================
+number is Even
+
+
+Program 68: Max Number Four
+==================================================
+Code:
+==================================================
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+d = int(input("Enter fourth number: "))
+if a>b and a>c and a>d :
+    print("A is big")
+elif b>a and b>c and b>d :
+    print("B is big")
+elif c>a and c>b and c>d :
+    print("C is big")
+else :
+    print("D is big")
+Output:
+==================================================
+D is big
+
+
+Program 69: Arithmatic
+==================================================
+Code:
+==================================================
+x=3
+y=5
+c=x+y
+print(c)
+Output:
+==================================================
+8
+
+
+Program 70: Billgenerate
+==================================================
+Code:
+==================================================
+unit=int(input("Enter consumed units: "))
+if unit<=100:
+    bill=unit*2
+elif unit<=200:
+    bill=200+(unit-100)*3
+elif unit<=300:
+    bill=500+(unit-200)*4
+elif unit<300:
+    bill=900+(unit-300)*7
+print("Bill amount is",bill)
+Output:
+==================================================
+Bill amount is 2
+
+
+Program 71: Grade
+==================================================
+Code:
+==================================================
+mark=int(input("Enter Marks: "))
+if mark>=90:
+    print("grade A")
+elif mark>=80:
+    print("grade B")
+elif mark>=70:
+    print("grade C")
+elif mark>=60:
+    print("grade D")
+else:
+    print("grade F")
+Output:
+==================================================
+grade B
+
+
+Program 72: Loaneligible
+==================================================
+Code:
+==================================================
+income=int(input("Enter Youre income:"))
+if income>=100000:
+ print("You eligible for Premium Loan")
+elif income>=50000:
+ print("You eligible for Standard Loan")
+elif income>=25000:
+  print("You eligible for Basic Loan")
+else:
+    print("you  Not Eligible for any loan")
+Output:
+==================================================
+you  Not Eligible for any loan
+
+
+Program 73: Maxfour
+==================================================
+Code:
+==================================================
+a=int(input("Enter a number: "))
+b= int(input("Enter a number: "))
+c = int(input("Enter a number: "))
+d = int(input("Enter a number: "))
+max_value = max(a, b, c, d)
+print("The maximum value is:", max_value)
+Output:
+==================================================
+The maximum value is: 2
+
+
+Program 74: Movie
+==================================================
+Code:
+==================================================
+age=int(input("Enter Youre age for ticket booking: "))
+if age<5:
+ price=0
+elif age>5 and age<=12:
+ price=100
+elif age<13 and age<=59:
+ price=200
+elif age<60:
+ price=150
+print("youre Ticket price is",price)
+Output:
+==================================================
+youre Ticket price is 150
+
+
+Program 75: Traficcalculator
+==================================================
+Code:
+==================================================
+speed=int(input("Enter Speed: "))
+if speed<=60:
+    fine=0
+elif speed>60 and speed<=80:
+    fine=500
+elif speed>80 and speed<=100:
+    fine=1000
+elif speed<100:
+    fine=2000
+print("youre fine is",fine)
+Output:
+==================================================
+youre fine is 0
+
+
+Program 76: 1St
+==================================================
+Code:
+==================================================
+class Employee:
+    def __init__(self, eid=0, enm="", bs=0):
+            self.eid = eid
+            self.enm = enm
+    def get_data(self):
+        self.emp_id = int(input("Enter Employee ID: "))
+        self.name = input("Enter Employee Name: ")
+
+    def put_data(self):
+        print("Employee ID:", self.emp_id)
+        print("Employee Name:", self.name)
+
+
+class Salary(Employee):
+    def get_data(self):
+        super().get_data()
+        self.bs = int(input("Enter Basic Salary: "))
+
+    def calculate_salary(self):
+        if self.bs < 5000:
+            self.hra = self.bs * 0.10
+            self.da = self.bs * 0.20
+            self.pf = self.bs * 0.05
+
+        elif self.bs < 10000:
+            self.hra = self.bs * 0.20
+            self.da = self.bs * 0.40
+            self.pf = self.bs * 0.10
+
+        else:
+            self.hra = self.bs * 0.30
+            self.da = self.bs * 0.60
+            self.pf = self.bs * 0.15
+
+        self.ns = self.bs + self.hra + self.da - self.pf
+
+    def put_data(self):
+        #super().put_data()
+        
+        print("Basic Salary:", self.bs)
+        print("HRA:", self.hra)
+        print("DA:", self.da)
+        print("PF:", self.pf)
+        print("Net Salary:", self.ns)
+
+
+
+emp = Salary()
+
+emp.get_data()
+emp.calculate_salary()
+emp.put_data()
+Output:
+==================================================
+Basic Salary: 1000
+HRA: 100.0
+DA: 200.0
+PF: 50.0
+Net Salary: 1250.0
+
+
+Program 77: Acc
+==================================================
+Code:
+==================================================
+class ABC:
+    def getData(self):
+        self._x=10
+        self._y=25
+        self.z=30
+    def __putData():
+        print("hi")
+    def _putData():
+            print("hi")
+class XYZ(ABC):
+    def getData(self):
+        super().getData()
+        self.z=50
+        self._y=30
+        self._x=45
+x1=XYZ()
+x1.getData()
+print(x1._x)
+print(x1._y)
+print(x1.z)
+x1.__putData()#private
+x1._putData()#protated
+Output:
+==================================================
+45
+30
+50
+Error: 'XYZ' object has no attribute '__putData'
+
+
+Program 78: Emp
+==================================================
+Code:
+==================================================
+class Employee:
+    def __init__(self, eid=0, enm="", bs=0):
+            self.eid = eid
+            self.enm = enm
+    def get_data(self):
+        self.emp_id = int(input("Enter Employee ID: "))
+        self.name = input("Enter Employee Name: ")
+
+    def put_data(self):
+        print("Employee ID:", self.emp_id)
+        print("Employee Name:", self.name)
+
+
+class Salary(Employee):
+    def get_data(self):
+        super().get_data()
+        self.bs = int(input("Enter Basic Salary: "))
+
+    def calculate_salary(self):
+        if self.bs < 5000:
+            self.hra = self.bs * 0.10
+            self.da = self.bs * 0.20
+            self.pf = self.bs * 0.05
+
+        elif self.bs < 10000:
+            self.hra = self.bs * 0.20
+            self.da = self.bs * 0.40
+            self.pf = self.bs * 0.10
+
+        else:
+            self.hra = self.bs * 0.30
+            self.da = self.bs * 0.60
+            self.pf = self.bs * 0.15
+
+        self.ns = self.bs + self.hra + self.da - self.pf
+
+    def put_data(self):
+        super().put_data()
+        print("Basic Salary:", self.bs)
+        print("HRA:", self.hra)
+        print("DA:", self.da)
+        print("PF:", self.pf)
+        print("Net Salary:", self.ns)
+
+
+
+emp = Salary()
+
+emp.get_data()
+emp.calculate_salary()
+emp.put_data()
+Output:
+==================================================
+Employee ID: 1
+Employee Name: Priya
+Basic Salary: 1000
+HRA: 100.0
+DA: 200.0
+PF: 50.0
+Net Salary: 1250.0
+
+
+Program 79: Errorhendling
+==================================================
+Code:
+==================================================
+try:
+    price = int(input("Enter price (100 to 1000): "))
+
+    if price < 100 or price > 1000:
+        raise ValueError("Price must be between 100 and 1000.")
+
+    print("Valid price:", price)
+
+except ValueError as e:
+    print("Error:", e)
+Output:
+==================================================
+Error: Price must be between 100 and 1000.
+
+
+Program 80: Hierarchical Inheritance
+==================================================
+Code:
+==================================================
+class Employee:
+    def __init__(self):
+        self.emp_id = 0
+        self.name = ""
+
+    def get_data(self):
+        self.emp_id = int(input("Enter Employee ID: "))
+        self.name = input("Enter Employee Name: ")
+
+    def put_data(self):
+        print("Employee ID:", self.emp_id)
+        print("Employee Name:", self.name)
+
+
+# Child class 1
+class Attendance(Employee):
+    def get_attendance(self):
+        self.total = int(input("Enter Total Days: "))
+        self.ptotal = int(input("Enter Total Present Days: "))
+        self.atotal = self.total - self.ptotal
+
+    def put_attendance(self):
+        print("Total Days:", self.total)
+        print("Present Days:", self.ptotal)
+        print("Absent Days:", self.atotal)
+
+
+# Child class 2
+class Salary(Employee):
+    def get_salary(self):
+        self.bs = int(input("Enter Basic Salary: "))
+
+    def calculate_salary(self):
+        if self.bs < 5000:
+            self.hra = self.bs * 0.10
+            self.da = self.bs * 0.20
+            self.pf = self.bs * 0.05
+
+        elif self.bs < 10000:
+            self.hra = self.bs * 0.20
+            self.da = self.bs * 0.40
+            self.pf = self.bs * 0.10
+
+        else:
+            self.hra = self.bs * 0.30
+            self.da = self.bs * 0.60
+            self.pf = self.bs * 0.15
+
+        self.ns = self.bs + self.hra + self.da - self.pf
+
+    def put_salary(self):
+        print("Basic Salary:", self.bs)
+        print("HRA:", self.hra)
+        print("DA:", self.da)
+        print("PF:", self.pf)
+        print("Net Salary:", self.ns)
+
+
+# Attendance object
+print("----- ATTENDANCE -----")
+
+emp1 = Attendance()
+emp1.get_data()
+emp1.get_attendance()
+emp1.put_data()
+emp1.put_attendance()
+
+
+# Salary object
+print("\n----- SALARY -----")
+
+emp2 = Salary()
+emp2.get_data()
+emp2.get_salary()
+emp2.calculate_salary()
+emp2.put_data()
+emp2.put_salary()
+Output:
+==================================================
+----- ATTENDANCE -----
+Employee ID: 1
+Employee Name: Priya
+Total Days: 1
+Present Days: 1
+Absent Days: 0
+
+----- SALARY -----
+(Program needs additional input.)
+
+
+Program 81: Multplpleinheritance
+==================================================
+Code:
+==================================================
+class Employee:
+    def __init__(self):
+        self.emp_id = 0
+        self.name = ""
+
+    def get_data(self):
+        self.emp_id = int(input("Enter Employee ID: "))
+        self.name = input("Enter Employee Name: ")
+
+    def put_data(self):
+        print("Employee ID:", self.emp_id)
+        print("Employee Name:", self.name)
+
+
+class Attendance(Employee):
+    def get_data(self):
+        super().get_data()
+
+        self.total = int(input("Enter Total Days: "))
+        self.ptotal = int(input("Enter Total Present Days: "))
+
+        self.atotal = self.total - self.ptotal
+
+    def put_data(self):
+        super().put_data()
+
+        print("Total Days:", self.total)
+        print("Present Days:", self.ptotal)
+        print("Absent Days:", self.atotal)
+
+
+class Salary(Attendance):
+    def get_data(self):
+        super().get_data()
+
+        self.bs = int(input("Enter Basic Salary: "))
+
+    def calculate_salary(self):
+
+        if self.bs < 5000:
+            self.hra = self.bs * 0.10
+            self.da = self.bs * 0.20
+            self.pf = self.bs * 0.05
+
+        elif self.bs < 10000:
+            self.hra = self.bs * 0.20
+            self.da = self.bs * 0.40
+            self.pf = self.bs * 0.10
+
+        else:
+            self.hra = self.bs * 0.30
+            self.da = self.bs * 0.60
+            self.pf = self.bs * 0.15
+
+      
+        self.ns = self.bs + self.hra + self.da - self.pf
+
+        self.ns = (self.ns * self.ptotal) / self.total
+
+    def put_data(self):
+        super().put_data()
+
+        print("Basic Salary:", self.bs)
+        print("HRA:", self.hra)
+        print("DA:", self.da)
+        print("PF:", self.pf)
+        print("Net Salary:", self.ns)
+
+
+
+emp = Salary()
+
+emp.get_data()
+
+emp.calculate_salary()
+
+emp.put_data()
+Output:
+==================================================
+Employee ID: 1
+Employee Name: Priya
+Total Days: 1
+Present Days: 1
+Absent Days: 0
+Basic Salary: 1000
+HRA: 100.0
+DA: 200.0
+PF: 50.0
+Net Salary: 1250.0
+
+
+Program 82: Lambda
+==================================================
+Code:
+==================================================
+double=lambda x: x*2
+print(double(5))
+
+double=lambda x: x*x
+print(double(5))
+
+#with two argu
+ad=lambda a,b:a+b
+print(ad(5,5))
+
+#if else
+chck=lambda x:"positive" if x>0 else "negative"
+print(chck(-8))
+print(chck(8))
+
+#maximum
+chck=lambda a,b: a if a>b else b
+print(chck(20,15))
+Output:
+==================================================
+10
+25
+10
+negative
+positive
+20
+
+
+Program 83: Matrix
+==================================================
+Code:
+==================================================
+matrix=[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+print(matrix[0])
+print(matrix[1][2])
+
+for row in matrix:
+    for item in row:
+        print(item,end=" ")
+    print()
+Output:
+==================================================
+[1, 2, 3]
+6
+1 2 3 
+4 5 6 
+7 8 9
+
+
+Program 84: 2
+==================================================
+Code:
+==================================================
+class student:
+
+    def __init__(self):
+        self.rno=21
+        self.name = "Vashi"
+        self.age = 19
+        self.marks=[20,20,20]
+    def display(self):
+        print("Name :", self.name)
+        print("Age :", self.age)     
+    def getData(self):
+        self.rno = int(input("Enter the Roll Number : "))
+        self.name = input("Enter the Name : ")
+        self.age = int(input("Enter the Age : "))
+
+        self.marks = []
+        for i in range(1, 4):
+            self.marks.append(int(input("Enter the Marks : ")))
+    def getData1(self,rno,name,age):
+        self.rno = rno
+        self.name = name
+        self.age = age
+
+        self.marks = []
+        for i in range(1, 4):
+            self.marks.append(int(input("Enter the Marks : ")))
+    def calculate(self):
+        self.total = sum(self.marks)
+        self.per = self.total / 3
+
+    def putData(self):
+        print("Roll No :", self.rno)
+        print("Name :", self.name)
+        print("Age :", self.age)
+        print("Marks :", self.marks)
+        print("Total :", self.total)
+        print("Percentage :", self.per)
+
+
+
+s1 = student()
+s1.display()
+
+s1.getData()
+s1.calculate()
+s1.putData()
+Output:
+==================================================
+Name : Vashi
+Age : 19
+(Program needs additional input.)
+
+
+Program 85: Emp
+==================================================
+Code:
+==================================================
+class employee:
+    def __init__(self):
+        self.emp_id = 0
+        self.name = ""
+        self.bs = 0
+    def __init__(self,emp_id,name,bs):
+        self.emp_id = int(input("Enter ID: "))
+        self.name = input("Enter Name: ")
+        self.sal = float(input("Enter Salary: "))
+        self.hra = float(input("Enter HRA: "))
+        self.da = float(input("Enter DA: "))
+        self.pf = float(input("Enter PF: "))
+    def cal(self):
+        if self.bs<5000:
+            self.hra=self.bs*0.10
+            self.da=self.bs*0.20
+            self.pf=self.bs*0.05
+        elif self.bs>=5000 and self.bs<10000:
+            self.hra=self.bs*0.20
+            self.da=self.bs*0.40
+            self.pf=self.bs*0.10
+        else:
+            self.hra=self.bs*0.30
+            self.da=self.bs*0.60
+            self.pf=self.bs*0.15
+        self.ns=self.bs+self.hra+self.da-self.pf
+
+
+
+n = int(input("Enter number of employees: "))
+emp=[]
+for i in range(n):
+    e= emp()
+    e.getData()
+    e.cal()
+    emp.append(e)
+print("Employee details")
+
+for e in emp:
+    e.putData()
+    print("---------------")
+    def putData(self):
+        print("Emp no is:", self.emp_id)
+        print("Name is:", self.name)
+        print("Basic Salary is:", self.bs)
+        print("HRA is:", self.hra)
+        print("DA is:", self.da)
+        print("PF is:", self.pf)
+        print("Net Salary is:", self.ns)
+Output:
+==================================================
+Error: 'list' object is not callable
+
+
+Program 86: Employedata
+==================================================
+Code:
+==================================================
+records = []
+class employee:
+    def insert_record(self):
+        emp_id = int(input("Enter ID: "))
+        name = input("Enter Name: ")
+        sal = int(input("Enter Salary: "))
+        hra = int(input("Enter HRA: "))
+        da = int(input("Enter DA: "))
+        pf = int(input("Enter PF: "))
+        record = {
+            "id": emp_id,
+            "name": name,
+            "sal": sal,
+            "hra": hra,
+            "da": da,
+            "pf": pf
+        }
+
+        records.append(record)
+        print("Record inserted successfully!")
+
+    def display(self):
+        print("\n--- Employee Records ---")
+        for r in records:
+            print("ID:", r["id"])
+            print("Name:", r["name"])
+            print("Salary:", r["sal"])
+            print("HRA:", r["hra"])
+            print("DA:", r["da"])
+            print("PF:", r["pf"])
+            print("----------------------")
+    def calculate_salary(self):
+        print("\n--- Salary Calculation ---")
+
+        for r in records:
+            sal = r["sal"]
+            if sal <= 5000:
+                hra = sal * 0.10
+                da = sal * 0.05
+            elif sal <= 7000:
+                hra = sal * 0.15
+                da = sal * 0.10
+            elif sal <= 10000:
+                hra = sal * 0.20
+                da = sal * 0.15
+            else:
+                hra = sal * 0.25
+                da = sal * 0.20
+
+            gross = sal + hra + da
+            pf = sal * 0.12
+            net = gross - pf
+
+            print("ID:", r["id"])
+            print("Name:", r["name"])
+            print("Basic Salary:", sal)
+            print("HRA:", hra)
+            print("DA:", da)
+            print("PF:", pf)
+            print("Gross Salary:", gross)
+            print("Net Salary:", net)
+            print("----------------------")
+
+
+
+
+
+
+obj.display()
+obj.calculate_salary()
+Output:
+==================================================
+Error: name 'obj' is not defined
+
+
+Program 87: Demo
+==================================================
+Code:
+==================================================
+class Employee:
+    def __init__(self, eid=0, enm="", bs=0):
+        self.eid = eid
+        self.enm = enm
+        self.bs = bs
+        self.hra = 0
+        self.da = 0
+        self.pf = 0
+        self.ns = 0
+
+    def getData(self):
+        self.eid = int(input("Enter employee ID: "))
+        self.enm = input("Enter employee name: ")
+        self.bs = int(input("Enter employee salary: "))
+        self.calSalary()
+
+    def calSalary(self):
+        if self.bs < 5000:
+            self.hra = self.bs * 0.10
+            self.da = self.bs * 0.20
+            self.pf = self.bs * 0.05
+
+        elif self.bs < 10000:
+            self.hra = self.bs * 0.20
+            self.da = self.bs * 0.40
+            self.pf = self.bs * 0.10
+
+        else:
+            self.hra = self.bs * 0.30
+            self.da = self.bs * 0.60
+            self.pf = self.bs * 0.15
+
+        self.ns = self.bs + self.hra + self.da - self.pf
+
+    def putData(self):
+        print("Employee ID   :", self.eid)
+        print("Employee Name :", self.enm)
+        print("Basic Salary  :", self.bs)
+        print("HRA           :", self.hra)
+        print("DA            :", self.da)
+        print("PF            :", self.pf)
+        print("Net Salary    :", self.ns)
+        print("--------------------------------")
+
+
+employees = []
+
+
+def insertEmployee():
+    emp = Employee()
+    emp.getData()
+
+    for e in employees:
+        if e.eid == emp.eid:
+            print("Employee ID already exists!")
+            return
+
+    employees.append(emp)
+    print("Employee inserted successfully!")
+
+
+def displayEmployee():
+    if len(employees) == 0:
+        print("No employee records available.")
+        return
+
+    print("\n========== EMPLOYEE DETAILS ==========")
+
+    for e in employees:
+        e.putData()
+
+
+def searchEmployee():
+    eid = input("Enter employee ID or Name to search: ")
+
+    for e in employees:
+        if str(e.eid) == eid or e.enm.lower() == eid.lower():
+            print("\nEmployee Found!")
+            print("--------------------------------")
+            e.putData()
+            return
+
+    print("Employee not found!")
+
+
+def deleteEmployee():
+    eid = int(input("Enter employee ID to delete: "))
+
+    for e in employees:
+        if e.eid == eid:
+            employees.remove(e)
+            print("Employee deleted successfully!")
+            return
+
+    print("Employee not found!")
+
+
+def updateEmployee():
+    eid = int(input("Enter employee ID to update: "))
+
+    for e in employees:
+        if e.eid == eid:
+            print("\nEnter new employee details:")
+            e.enm = input("Enter employee name: ")
+            e.bs = int(input("Enter employee salary: "))
+            e.calSalary()
+
+            print("Employee updated successfully!")
+            return
+
+    print("Employee not found!")
+
+
+def sortEmployee():
+    if len(employees) == 0:
+        print("No employee records available.")
+        return
+
+    employees.sort(key=lambda e: e.bs)
+
+    print("\nEmployees sorted by salary:")
+    displayEmployee()
+
+
+while True:
+
+    print("\n========== EMPLOYEE MENU ==========")
+    print("Press 1 for Insert")
+    print("Press 2 for Update")
+    print("Press 3 for Delete")
+    print("Press 4 for Display")
+    print("Press 5 for Sort by Salary")
+    print("Press 6 for Search")
+    print("Press 7 for Exit")
+    print("===================================")
+
+    choice = int(input("Enter your choice: "))
+
+    match choice:
+
+        case 1:
+            insertEmployee()
+
+        case 2:
+            updateEmployee()
+
+        case 3:
+            deleteEmployee()
+
+        case 4:
+            displayEmployee()
+
+        case 5:
+            sortEmployee()
+
+        case 6:
+            searchEmployee()
+
+        case 7:
+            print("Thank you!")
+            break
+
+        case _:
+            print("Invalid choice! Please enter 1 to 7.")
+Output:
+==================================================
+========== EMPLOYEE MENU ==========
+Press 1 for Insert
+Press 2 for Update
+Press 3 for Delete
+Press 4 for Display
+Press 5 for Sort by Salary
+Press 6 for Search
+Press 7 for Exit
+===================================
+Error: invalid literal for int() with base 10: 'Priya'
+
+
+Program 88: Emp
+==================================================
+Code:
+==================================================
+class Employee:
+    def __init__(self, eid=0, enm="", bs=0):
+        self.eid = eid
+        self.enm = enm
+        self.bs = bs
+        self.hra = 0
+        self.da = 0
+        self.pf = 0
+        self.ns = 0
+
+    def getData(self):
+        self.eid = int(input("Enter employee ID: "))
+        self.enm = input("Enter employee name: ")
+        self.bs = int(input("Enter employee salary: "))
+        self.calSalary()
+
+    def calSalary(self):
+        if self.bs < 5000:
+            self.hra = self.bs * 0.10
+            self.da = self.bs * 0.20
+            self.pf = self.bs * 0.05
+
+        elif self.bs < 10000:
+            self.hra = self.bs * 0.20
+            self.da = self.bs * 0.40
+            self.pf = self.bs * 0.10
+
+        else:
+            self.hra = self.bs * 0.30
+            self.da = self.bs * 0.60
+            self.pf = self.bs * 0.15
+
+        self.ns = self.bs + self.hra + self.da - self.pf
+
+    def putData(self):
+        print("Employee ID   :", self.eid)
+        print("Employee Name :", self.enm)
+        print("Basic Salary  :", self.bs)
+        print("HRA           :", self.hra)
+        print("DA            :", self.da)
+        print("PF            :", self.pf)
+        print("Net Salary    :", self.ns)
+        print("--------------------------------")
+
+
+employees = []
+
+
+def insertEmployee():
+    emp = Employee()
+    emp.getData()
+
+    # Check duplicate ID
+    for e in employees:
+        if e.eid == emp.eid:
+            print("Employee ID already exists!")
+            return
+
+    employees.append(emp)
+    print("Employee inserted successfully!")
+
+
+def updateEmployee():
+    eid = int(input("Enter employee ID to update: "))
+
+    for e in employees:
+        if e.eid == eid:
+            print("\nEmployee Found!")
+            print("Enter new details:")
+
+            e.enm = input("Enter employee name: ")
+            e.bs = int(input("Enter employee salary: "))
+
+            # Recalculate salary
+            e.calSalary()
+
+            print("Employee updated successfully!")
+            return
+
+    print("Employee not found!")
+
+
+
+def deleteEmployee():
+    eid = int(input("Enter employee ID to delete: "))
+
+    for e in employees:
+        if e.eid == eid:
+            employees.remove(e)
+            print("Employee deleted successfully!")
+            return
+
+    print("Employee not found!")
+
+
+
+def displayEmployee():
+    if len(employees) == 0:
+        print("No employee records available.")
+        return
+
+    print("\n========== EMPLOYEE DETAILS ==========")
+
+    for e in employees:
+        e.putData()
+
+
+
+def sortEmployee():
+    if len(employees) == 0:
+        print("No employee records available.")
+        return
+
+    employees.sort(key=lambda e: e.bs)
+
+    print("\nEmployees sorted by Basic Salary:")
+    print("--------------------------------")
+
+    for e in employees:
+        e.putData()
+
+
+def searchEmployee():
+    eid = int(input("Enter employee ID to search: "))
+
+    for e in employees:
+        if e.eid == eid:
+            print("\nEmployee Found!")
+            print("--------------------------------")
+            e.putData()
+            return
+
+    print("Employee not found!")
+Output:
+==================================================
+(No output)
+
+
+Program 89: Empmenu
+==================================================
+Code:
+==================================================
+class Employee:
+    def __init__(self, eid=0, enm="", bs=0):
+        self.eid = eid
+        self.enm = enm
+        self.bs = bs
+        self.hra = 0
+        self.da = 0
+        self.pf = 0
+        self.ns = 0
+
+    def getData(self):
+        self.eid = int(input("Enter employee ID: "))
+        self.enm = input("Enter employee name: ")
+        self.bs = int(input("Enter employee salary: "))
+        self.calSalary()
+
+    def calSalary(self):
+        if self.bs < 5000:
+            self.hra = self.bs * 0.10
+            self.da = self.bs * 0.20
+            self.pf = self.bs * 0.05
+
+        elif self.bs < 10000:
+            self.hra = self.bs * 0.20
+            self.da = self.bs * 0.40
+            self.pf = self.bs * 0.10
+
+        else:
+            self.hra = self.bs * 0.30
+            self.da = self.bs * 0.60
+            self.pf = self.bs * 0.15
+
+        self.ns = self.bs + self.hra + self.da - self.pf
+
+    def putData(self):
+        print("Employee ID   :", self.eid)
+        print("Employee Name :", self.enm)
+        print("Basic Salary  :", self.bs)
+        print("HRA           :", self.hra)
+        print("DA            :", self.da)
+        print("PF            :", self.pf)
+        print("Net Salary    :", self.ns)
+        print("--------------------------------")
+
+employees = []
+
+def insertEmployee():
+    emp = Employee()
+    emp.getData()
+
+    for e in employees:
+        if e.eid == emp.eid:
+            print("Employee ID already exists!")
+            return
+
+    employees.append(emp)
+    print("Employee inserted successfully!")
+
+def displayEmployee():
+    if len(employees) == 0:
+        print("No employee records available.")
+        return
+
+    print("\n========== EMPLOYEE DETAILS ==========")
+
+    for e in employees:
+        e.putData()
+
+def searchEmployee():
+    eid = input("Enter employee ID or Name to search: ")
+
+    for e in employees:
+        if str(e.eid) == eid or e.enm.lower() == eid.lower():
+            print("\nEmployee Found!")
+            print("--------------------------------")
+            e.putData()
+            return
+
+    print("Employee not found!")
+
+def deleteEmployee():
+    eid = int(input("Enter employee ID to delete: "))
+
+    for e in employees:
+        if e.eid == eid:
+            employees.remove(e)
+            print("Employee deleted successfully!")
+            return
+
+    print("Employee not found!")
+
+def updateEmployee():
+    eid = int(input("Enter employee ID to update: "))
+
+    for e in employees:
+        if e.eid == eid:
+            print("\nEnter new employee details:")
+            e.enm = input("Enter employee name: ")
+            e.bs = int(input("Enter employee salary: "))
+            e.calSalary()
+
+            print("Employee updated successfully!")
+            displayEmployee()
+            return
+            
+    print("Employee not found!")
+Output:
+==================================================
+(No output)
+
+
+Program 90: Main
+==================================================
+Code:
+==================================================
+import empmenu as emp
+
+while True:
+
+    print("\n======== EMPLOYEE MENU ========")
+    print("Press 1 for Insert")
+    print("Press 2 for Update")
+    print("Press 3 for Delete")
+    print("Press 4 for Display")
+    print("Press 5 for Sort by Salary")
+    print("Press 6 for Search")
+    print("Press 7 for Exit")
+    print("===================================")
+
+    choice = int(input("Enter your choice: "))
+
+    match choice:
+
+        case 1:
+            emp.insertEmployee()
+
+        case 2:
+            emp.updateEmployee()
+
+        case 3:
+            emp.deleteEmployee()
+
+        case 4:
+            emp.displayEmployee()
+
+        case 5:
+            emp.sortEmployee()
+
+        case 6:
+            emp.searchEmployee()
+        case _:
+            print("Invalid choice! Please enter 1 to 7.")
+Output:
+==================================================
+Error: No module named 'empmenu'
+
+
+Program 91: Print( Hello )
+==================================================
+Code:
+==================================================
+print('Hello')
+Output:
+==================================================
+Hello
+
+
+Program 92: Pro
+==================================================
+Code:
+==================================================
+products = {
+    101: {
+        "product_name": "Laptop",
+        "price": 5000,
+        "quantity": 6,
+        "salesman": "Vashi"
+    },
+    102: {
+        "product_name": "Mobile",
+        "price": 25000,
+        "quantity": 10,
+        "salesman": "Amit"
+    },
+    103: {
+        "product_name": "Keyboard",
+        "price": 1500,
+        "quantity": 20,
+        "salesman": "Jay"
+    }
+}
+def add():
+
+    product_id = int(input("Enter Product ID: "))
+
+    if product_id in products:
+        print("Record ID already exists!")
+        return
+
+    product_name = input("Enter Product Name: ")
+    price = int(input("Enter Price: "))
+    quantity = int(input("Enter Quantity: "))
+    salesman = input("Enter Salesman Name: ")
+
+    products[product_id] = {
+        "product_name": product_name,
+        "price": price,
+        "quantity": quantity,
+        "salesman": salesman
+    }
+
+    print("Record added successfully!")
+
+def sortname():
+
+    sorted_products = sorted(
+        products.items(),
+        key=lambda x: x[1]["product_name"]
+    )
+def sortquantity():
+
+    sort= sorted(
+        products.items(),
+        key=lambda x: x[1]["quantity"]
+    )
+def maximum():
+
+    maxi = max(
+        products.items(),
+        key=lambda x: x[1]["price"]
+    )
+    print("Product ID   :", max_product[0])
+    print("Product Name :", max_product[1]["product_name"])
+def minimum():
+
+    mini = min(
+        products.items(),
+        key=lambda x: x[1]["price"]
+    )
+    print("Product ID   :", min_product[0])
+    print("Product Name :", min_product[1]["product_name"])
+def display():
+    for product_id, product in products.items():
+        print("Product ID :", product_id)
+        print("Product Name :", product["product_name"])
+        print("Price :", product["price"])
+        print("Quantity :", product["quantity"])
+        print("Salesman :", product["salesman"])
+# Main Menu
+while True:
+
+
+    print("1. ADD RECORD")
+    print("2. DISPLAY RECORDS")
+    print("3. Sort by name")
+    print("4. sort by quntity")
+    print("5. maximum")
+    print("6. minimum")
+    print("7. display")
+    print("0. EXIT")
+    print("====================================")
+
+    choice = int(input("Enter your choice: "))
+
+    match choice:
+
+        case 1:
+            add()
+        case 2:
+            display()
+        case 3:
+            sortname()
+        case 4: 
+            sortquantity()
+        case 5:
+            maximum()
+        case 6:
+            minimum()
+        case 7:
+            display()
+        case 0:
+            print("Program terminated.")
+            break
+
+        case _:
+            print("Invalid choice!")
+Output:
+==================================================
+1. ADD RECORD
+2. DISPLAY RECORDS
+3. Sort by name
+4. sort by quntity
+5. maximum
+6. minimum
+7. display
+0. EXIT
+====================================
+Error: invalid literal for int() with base 10: 'Priya'
+
+
+Program 93: Main
+==================================================
+Code:
+==================================================
+import product as p
+while True:
+    print("\n1. Insert")
+    print("2. Display")
+    print("3. Search")
+    print("4. Exit")
+    
+    choice = int(input("\nEnter your choice: "))
+
+    if choice == 1:
+        p.insert()
+
+    elif choice == 2:
+        p.display()
+
+    elif choice == 3:
+        p.search()
+
+    elif choice == 4:
+        print("Thank you!")
+        break
+
+    else:
+        print("Invalid choice!")
+Output:
+==================================================
+Error: No module named 'product'
+
+
+Program 94: Product
+==================================================
+Code:
+==================================================
+p1 = []
+def insert():
+    pid = int(input("Enter product ID: "))
+    name = input("Enter product name: ")
+    price =int(input("Enter product price: "))
+
+    product = {
+        "pid":pid,
+        "name": name,
+        "price": price
+    }
+    p1.append(product)
+    print("Product inserted successfully!")
+
+def display():
+    if len(p1) == 0:
+        print("No products available.")
+    else:
+        print("\nProducts:")
+        for product in p1:
+            print("Pid:", product["pid"])
+            print("Name:", product["name"])
+            print("Price:", product["price"])
+            print()
+
+def search():
+    pid = int(input("Enter product ID to search: "))
+
+    found = False
+
+    for product in p1:
+        if product["pid"] == pid:
+            print("Product found!")
+            print("PID:", product["pid"])
+            print("Name:", product["name"])
+            print("Price:", product["price"])
+            found = True
+            break
+
+    if not found:
+        print("Product not found.")
+Output:
+==================================================
+(No output)
+
+
+Program 95: String 2
+==================================================
+Code:
+==================================================
+s1="understanding"
+if s1.find("stand"):
+    print("word is exist")
+else:
+    print("Not exist")
+
+a=s1.find("stand")
+print(a)
+
+a="stand" in s1
+print(a)
+
+s2="stand under standing stand"
+print(a)
+a=s2.rfind("stand")
+print(a)
+
+a=s2.index("stand")
+print(a)
+
+a=s2.count("stand")
+print(a)
+
+a=s2.startswith("stand")
+print(a)
+
+a=s2.endswith("stand")
+print(a)
+
+print(s2.isdigit())
+print(s2.isalpha())
+s3="1vadf2 .2333"
+print(s3.isdecimal())
+
+print(s2.isalnum())
+
+print(s3.isspace())
+
+print(s2.islower())
+
+print(s2.isascii())
+
+a=s2.split()
+print(a)
+print(len(a))
+
+#number of multiple line string make   find number of line ketli ch 
+
+join(["a","b","c"])
+partition()
+rpartition()
+Output:
+==================================================
+word is exist
+5
+True
+True
+21
+0
+3
+True
+True
+False
+False
+False
+False
+False
+True
+True
+['stand', 'under', 'standing', 'stand']
+4
+Error: name 'join' is not defined
+
+
+Program 96: String
+==================================================
+Code:
+==================================================
+#diffrent way to declare string 
+str='python\nLanguage'
+print(str)
+
+str="python\tLanguage"
+print(str)
+
+str='''python\nLanguage'''
+print(str)
+
+str="""python\nLanguage"""
+print(str)
+
+#double \\
+str='python\\Language'
+print(str)
+
+str="python\\Language"
+print(str)
+
+str='''python\\Language'''
+print(str)
+
+str="""python\\Language"""
+print(str)
+
+#duble "" display
+print("Double """)
+str='python"Language'
+print(str)
+
+str="python\"Language"
+print(str)
+
+str='''python"Language'''
+print(str)
+
+str="""python"Language"""
+print(str)
+
+#######################################################
+str='python\\s\tLanguage'
+print(str)
+
+str="python's\tLanguage"
+print(str)
+
+str='''python's\tLanguage'''
+print(str)
+
+str="""python's Language"""
+print(str)
+
+##################################################################
+print(str[8::])
+print(str[-1:-9:-1])
+
+###################################################################
+str2="hello"
+str1="world"
+str4=str2+str1
+print(str4)
+print("welcome\t"+"LjKU")
+print("wo" in str1)
+print("f" not in str1)
+
+##########################################################################
+str1="abc"
+str2="ABCDEFG"
+#both string are eqal or not
+if str1==str2:
+    print("same")
+else:
+    print("not same")
+
+print(str1==str2)
+############################################################################
+if str1>str2:
+    print("BIG first")
+else:
+    print("BIG Second")
+
+###########################################################################
+name="vashishth kOshti"
+print(name.upper())
+print(name.lower())
+print(name.capitalize())
+print(name.title())
+print(name.swapcase())
+print(name.casefold())
+print(name.strip())#left and right side space remove
+print(name.lstrip())
+print(name.rstrip())
+
+print(name.replace("vashishth","vashi"))
+################################################################################
+Output:
+==================================================
+python
+Language
+python	Language
+python
+Language
+python
+Language
+python\Language
+python\Language
+python\Language
+python\Language
+Double 
+python"Language
+python"Language
+python"Language
+python"Language
+python\s	Language
+python's	Language
+python's	Language
+python's Language
+ Language
+egaugnaL
+helloworld
+welcome	LjKU
+True
+True
+not same
+False
+BIG first
+VASHISHTH KOSHTI
+vashishth koshti
+Vashishth koshti
+Vashishth Koshti
+VASHISHTH KoSHTI
+vashishth koshti
+vashishth kOshti
+vashishth kOshti
+vashishth kOshti
+vashi kOshti
+
+
+Program 97: Unit2
+==================================================
+Code:
+==================================================
+def hello():
+    print("hello world")
+hello()
+
+def add(a,b):
+    c=a+b;
+    return c
+x=int(input("ENter value first:"))
+y=int(input("ENter value second:"))
+z=add(x,y)
+print("Answer",z)
+
+def addi(a,b):
+    return a+b,a-b,a*b
+x=int(input("ENter value first:"))
+y=int(input("ENter value second:"))
+z=addi(x,y)
+print("Answer",z)
+p,q,r=addi(x,y)
+print(p,q,r)
+Output:
+==================================================
+hello world
+Answer 4
+Answer (4, 0, 4)
+4 0 4
+
+
+Program 98: Usermatrix
+==================================================
+Code:
+==================================================
+rows=int(input("Enter number of rows:"))
+cols=int(input("Enter number of column:"))
+
+print("Enter element of Matrix A:")
+A=[]
+for i in range(rows):
+    rows=[]
+    for j in range(cols):
+        rows.append(int(input("Enter Valye:")))
+    A.append(rows)
+#display matrix
+for i in A:
+    for j in i:
+        print(j,end=" ")
+    print()
+Output:
+==================================================
+Enter element of Matrix A:
+(Program needs additional input.)
